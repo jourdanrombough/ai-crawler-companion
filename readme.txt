@@ -8,19 +8,21 @@ Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Logs AI and search bot visits with verified IPs, and fixes GoDaddy CDN caching that hides bot traffic and leaves Markdown copies stale.
+Makes llms.txt, Markdown and AI bot tracking plugins work on GoDaddy Managed WordPress, with a verified AI bot log for any host.
 
 == Description ==
+
+Installed an llms.txt generator, a Markdown-for-AI plugin or an AI bot tracker on GoDaddy Managed WordPress, and it seems to do nothing? The bot dashboard stays nearly empty, edits never reach the files AI tools read, and you cannot tell whether ChatGPT or Perplexity ever visited. The plugin is usually fine. The host is the problem.
 
 AI visibility plugins (llms.txt generators, Markdown copies of posts, AI bot trackers) assume every request reaches WordPress. On GoDaddy Managed WordPress it usually does not:
 
 * Every site sits behind a GoDaddy-managed Cloudflare CDN that can cache pages for up to 31 days.
 * The CDN overrides the Cache-Control header your plugins send, so "don't cache this" has no effect.
-* The CDN cannot be turned off, and URL exclusions are not offered.
+* The CDN cannot be turned off, URL exclusions are not offered and the cache lifetime cannot be shortened.
 * WP-Cron is disabled, so plugins that schedule cleanups, rebuilds or pings never run them.
 * GoDaddy's own access logs keep IPs but not user agents, so you cannot see which bots visited.
 
-The result: bot trackers undercount, Markdown (.md) copies stay stale after you edit a post, and you cannot tell a real GPTBot from someone pretending to be one.
+The result: bot trackers undercount, Markdown (.md) copies and llms.txt can stay stale after you edit a post, GoDaddy's own LLMS.TXT switch can compete with your SEO plugin's file, and you cannot tell a real GPTBot from someone pretending to be one.
 
 AI Crawler Companion works alongside your existing plugins. It does not generate llms.txt or Markdown itself.
 
