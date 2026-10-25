@@ -1,5 +1,5 @@
 === AI Crawler Companion ===
-Contributors: optimizationtheory
+Contributors: jourdanrombough
 Tags: ai crawlers, gptbot, llms.txt, markdown, godaddy
 Requires at least: 6.2
 Tested up to: 7.1
